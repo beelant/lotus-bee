@@ -126,7 +126,7 @@ nohup lotus-worker  --listen=<本机ip>:3456 --ability=AP:1,MaxSector:12,PC1:6,P
 ```shell
 lotus-miner sectors auto on/off
 lotus-miner sectors balance 100 //可以自由调整，worker余额低于这个数值的时候不会开启自动质押
-
+```
 
 ## 运维特性/注意事项
 1.    关于存储扩容问题

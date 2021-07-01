@@ -1,10 +1,10 @@
 # lotus-Bee
-**一个更适合FileCoin的Lotus**
+**一个可能更好用的Lotus**
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)   ![version Bee](https://img.shields.io/badge/version-1.10.0-orange)
 
 ## 关于Lotus-Bee
-[Lotus代码](https://github.com/filecoin-project/lotus/#project-lotus---%E8%8E%B2)蜂灯科技凭借分布式存储领域开发经验和对[Lotus代码](https://github.com/filecoin-project/lotus/#project-lotus---%E8%8E%B2)的深刻钻研，特此开发Lotus-Bee版本Lotus代码，提供广大分布式存储提供商更快捷的数据封装速度，更灵活的集群配置方式，更稳定的运维特性的Lotus代码，为推动行业发展贡献绵薄之力，现决定开放免费使用。
+蜂灯科技凭借分布式存储领域开发经验和对[Lotus代码](https://github.com/filecoin-project/lotus/#project-lotus---%E8%8E%B2)的深刻钻研，特此开发Lotus-Bee版本Lotus代码，提供广大分布式存储提供商更快捷的数据封装速度，更灵活的集群配置方式，更稳定的运维特性的Lotus代码，为推动行业发展贡献绵薄之力，现决定开放免费使用。
 
 ## 主要增强功能
 **已完成（已通过测试稳定运行）：**

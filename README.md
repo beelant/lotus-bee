@@ -176,16 +176,20 @@ lotus setGasCap --preGasCap=1 --preBGasCap=1 --proGasCap=1 --proAGasCap=1 --subG
 ```shell
 lotus-miner config modify --BatchPreCommits=true --MaxPreCommitBatch=256
 ```  
+也可以通过修改db配置 config
 | 参数 | 含义 | 默认值 |
 | :-----| :----- | :----- |
 | BatchPreCommits | 是否开启批量提交precommit | True |
 | MaxPreCommitBatch | 最大批量提交precommit数量 | 256 |
 | MinPreCommitBatch | 最小批量提交precommit数量（暂未使用） | 1 |
 | PreCommitBatchWait | 进入队列等待多久后batchPreCommit时间（单位：分钟） | 10 |
+| PreCommitBatchSlack | 最晚结束前多少时间内提交precommit（单位：分）(暂未使用） | 360 |
 | AggregateCommits | 是否开启批量提交commit | True |
 | MinCommitBatch | 最小批量提交commit数量 | 4 |
 | MaxCommitBatch | 最大批量提交commit数量 | 819 |
 | CommitBatchWait | 进入队列等待多久后batchCommit时间（单位：分钟） | 10 |
+| CommitBatchSlack | 最晚结束前多少时间内提交commit（单位：分 )(暂未使用） | 180 |
+
 
 
 

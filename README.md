@@ -127,8 +127,8 @@ nohup lotus-worker  --listen=<本机ip>:3456 --ability=AP:1,MaxSector:12,PC1:6,P
 lotus-miner sectors auto on/off
 lotus-miner sectors balance 100 //可以自由调整，worker余额低于这个数值的时候不会开启自动质押
 
-```
-##运维特性/注意事项
+
+## 运维特性/注意事项
 1.    关于存储扩容问题
 由于lotus集群对于外部存储的消耗较大，需要逐步增加挂载到集群的存储空间，如果需要增加不同的Path路径，需要首先在sealing miner上初始化：
 ```shell

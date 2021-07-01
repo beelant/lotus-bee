@@ -1,5 +1,5 @@
 # lotus-Bee
-**一个更适合矿工的Lotus**
+**一个更适合FileCoin的Lotus**
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)   ![version Bee](https://img.shields.io/badge/version-1.10.0-orange)
 
@@ -26,9 +26,9 @@
 
 9.    手动设定消息费cap值，根据实际情况进行调整多种关键消息的cap值。
 
-10.    PC2,C2算法优化.
+10.    PC2,C2算法优化。
 
-11.    部分数据落db表.（核心逐步迁移到db中）.
+11.    部分数据落db表.（核心逐步迁移到db中）。
 
 12.    批量提交precommit和commit消息逻辑优化，相关配置转移到数据库中（实时读取）,新增参数进入队列等待多久后batch时间。
 
@@ -65,6 +65,7 @@ sed -i 's/\"CanStore\": true/\"CanStore\": false/' $LOTUS_MINER_PATH/sectorstore
     ListenAddress = "/ip4/0.0.0.0/tcp/2345/http"
     RemoteListenAddress = "<本机ip>:2345"
 * 配置Mysql（<font color=red>Sealing Miner 必须开启Mysql存储数据，其他Miner可不链接Mysql.</font>）
+
     I. 添加环境变量 SQL_PATH=YOUR_PATH/sql.json
 
     II. 新建mysql配置文件 sql.json
@@ -166,11 +167,11 @@ lotus setGasCap --preGasCap=1 --preBGasCap=1 --proGasCap=1 --proAGasCap=1 --subG
 
 ```
 上述命令含义设置
-> * preGasCap     PreCommitSector 消息费设置默认1  NanoFIl
-> * preBGasCap    PreCommitSectorBatch 消息费设置默认1  NanoFIl
-> * proGasCap     ProveCommitSector 消息费设置默认1  NanoFIl
-> * proAGasCap    ProveCommitAggregate 消息费设置默认1  NanoFIl
-> * subGasCap     SubmitWindowedPoSt 消息费设置默认10 NanoFIl
+> * preGasCap     PreCommitSector 消息费设置默认1  NanoFil
+> * preBGasCap    PreCommitSectorBatch 消息费设置默认1  NanoFil
+> * proGasCap     ProveCommitSector 消息费设置默认1  NanoFil
+> * proAGasCap    ProveCommitAggregate 消息费设置默认1  NanoFil
+> * subGasCap     SubmitWindowedPoSt 消息费设置默认10 NanoFil
 
 4.    配置批量提交消息
 ```shell

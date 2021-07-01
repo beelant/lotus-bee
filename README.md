@@ -14,9 +14,9 @@
 
 3.    设定worker工作区的MaxSectors并发作业的总数量，用于不同机型的nvme缓存盘大小，防止爆盘。
 
-4.    可命令开启和关闭的全自动智能add piece策略，保证机器不间断运行，也不会扇区超量，也可以随时停止。
+4.    可命令开启和关闭的全自动智能add piece策略，保证机器不间断运行，也不会扇区超量，也可以随时停止，也可根据余额来。
 
-5.    任务单机调度，p1、p2、c1、c2都在同一台worker机器上执行，避免所有的文件传输，智能调度保证机器满负载运行。可横向扩容worker，没有任何瓶颈。
+5.    可以任务单机调度都在同一台worker机器上执行，避免所有的文件传输，智能调度保证机器满负载运行。可横向扩容worker，没有任何瓶颈，也可以让C2外包。
 
 6.    worker自动同步miner存储路径，worker计算好扇区后直接落盘到存储，不需要经过miner回传。
 
@@ -24,15 +24,13 @@
 
 8.    数据落盘适配常规NFS，七牛云对象存储等。增加数据落盘校验，数据落盘后校验文件，确保文件无误。
 
-9.    自动同步存储路径，worker自动同步miner上的storage存储路径，减少因增加存储导致的运维工作。
+9.    手动设定消息费cap值，根据实际情况进行调整多种关键消息的cap值。
 
-10.    手动设定消息费cap值，根据实际情况进行调整三种关键消息PreCommitSector、ProveCommitSector和SubmitWindowedPoSt的cap值。
+10.    PC2,C2算法优化.
 
-11.    PC2,C2算法优化.
+11.    部分数据落db表.（核心逐步迁移到db中）.
 
-12.    部分数据落db表.（核心逐步迁移到db中）
-
-13.    批量提交precommit和commit消息逻辑优化，相关配置转移到数据库中（实时读取）
+12.    批量提交precommit和commit消息逻辑优化，相关配置转移到数据库中（实时读取）,新增参数进入队列等待多久后batch时间。
 
 **测试中：**
 
@@ -70,22 +68,15 @@ sed -i 's/\"CanStore\": true/\"CanStore\": false/' $LOTUS_MINER_PATH/sectorstore
     I. 添加环境变量 SQL_PATH=YOUR_PATH/sql.json
 
     II. 新建mysql配置文件 sql.json
-    ```Golang
+    ```json
     {
    "name": "name",
-
    "addr": "addr",
-
    "db": "db",
-
    "username": "username",
-
    "password": "password",
-
    "maxIdleConn": 0,
-
    "maxOpenConn": 100,
-
    "connMaxLifetime": 0
     }
     ```
@@ -110,7 +101,7 @@ rsync -av --exclude  storage/kvlog  --exclude storage/journal storage storage-
 RemoteListenAddress = "<本机ip>:端口"
 * 运行WnPost Miner
 ```shell
-nohup lotus-miner run --wdpost=false --wnpost=true --p2p=false --enable-db=false > wn.log 2>&1 &
+nohup lotus-miner run --wdpost=false --wnpost=true --p2p=false --enable-db=false > lotus-wn.log 2>&1 &
 ```
 2.3 WdPost Miner
 * 拷贝Sealing Miner机器的".lotusminer"
@@ -122,7 +113,7 @@ rsync -av --exclude  storage/kvlog  --exclude storage/journal storage storage-
 RemoteListenAddress = "<本机ip>:端口"
 * 运行WdPost Miner
 ```shell
-nohup lotus-miner run --wdpost=true --wnpost=false --p2p=false --enable-db=false > wd.log 2>&1 &
+nohup lotus-miner run --wdpost=true --wnpost=false --p2p=false --enable-db=false > lotus-wd.log 2>&1 &
 ```
 3.    Worker
 * 运行Worker（每种任务数量根据机器情况进行相应调整）
@@ -175,11 +166,11 @@ lotus setGasCap --preGasCap=1 --preBGasCap=1 --proGasCap=1 --proAGasCap=1 --subG
 
 ```
 上述命令含义设置
-> * preGasCap     PreCommitSector 消息费设置默认1  
-> * preBGasCap    PreCommitSectorBatch 消息费设置默认1  
-> * proGasCap     ProveCommitSector 消息费设置默认1  
-> * proAGasCap    ProveCommitAggregate 消息费设置默认1  
-> * subGasCap     SubmitWindowedPoSt 消息费设置默认10
+> * preGasCap     PreCommitSector 消息费设置默认1  NanoFIl
+> * preBGasCap    PreCommitSectorBatch 消息费设置默认1  NanoFIl
+> * proGasCap     ProveCommitSector 消息费设置默认1  NanoFIl
+> * proAGasCap    ProveCommitAggregate 消息费设置默认1  NanoFIl
+> * subGasCap     SubmitWindowedPoSt 消息费设置默认10 NanoFIl
 
 4.    配置批量提交消息
 ```shell

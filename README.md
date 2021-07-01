@@ -59,7 +59,7 @@
 
 2.1 Sealing Miner
 * 初始化Sealing Miner
-```golang
+```shell
 lotus-miner init --owner=<钱包地址> --sector-size=*GiB
 sed -i 's/\"CanStore\": true/\"CanStore\": false/' $LOTUS_MINER_PATH/sectorstore.json
 ```
@@ -91,48 +91,48 @@ sed -i 's/\"CanStore\": true/\"CanStore\": false/' $LOTUS_MINER_PATH/sectorstore
     ```
 
 *  运行Sealing Miner
-```Golang
+```shell
 nohup lotus-miner run --wdpost=false --wnpost=false --workername=master --enable-db=true	--allow-c2-py=true > miner.log 2>&1 &
 
 ```
 * 挂载（使用存储分离 nsf挂载）
-```golang
+```shell
 lotus-miner storage attach --init --store /home/nfs
 
 ```
 2.2 WnPost Miner
 * 拷贝Sealing Miner机器的Storage
 * 推荐使用命令 （最优方案是miner数据放到分布式存储上面，确保数据不丢失，miner机器远程挂载miner数据）
-```golang
+```shell
 rsync -av --exclude  storage/kvlog  --exclude storage/journal storage storage-wn
 ```
 * 修改 ".lotusminer/config.toml"
 RemoteListenAddress = "<本机ip>:端口"
 * 运行WnPost Miner
-```golang
+```shell
 nohup lotus-miner run --wdpost=false --wnpost=true --p2p=false --enable-db=false > wn.log 2>&1 &
 ```
 2.3 WdPost Miner
 * 拷贝Sealing Miner机器的".lotusminer"
-```golang
+```shell
 rsync -av --exclude  storage/kvlog  --exclude storage/journal storage storage-wd
 
 ```
 * 修改".lotusminer/config.toml"
 RemoteListenAddress = "<本机ip>:端口"
 * 运行WdPost Miner
-```golang
+```shell
 nohup lotus-miner run --wdpost=true --wnpost=false --p2p=false --enable-db=false > wd.log 2>&1 &
 ```
 3.    Worker
 * 运行Worker（每种任务数量根据机器情况进行相应调整）
-```golang
+```shell
 nohup lotus-worker  --listen=<本机ip>:3456 --ability=AP:1,MaxSector:12,PC1:6,PC2:1,C1:1,C2:1,FIN:1,GET:1,UNS:1,RD:1 > worker.log 2>&1 &
 ```
 * ⚠️注意：worker的存储需挂载与miner一样的存储，相同的路径和相同的机器
 
 4.    在sealing miner机器上开启自动质押
-```golang
+```shell
 lotus-miner sectors auto on/off
 lotus-miner sectors balance 100 //可以自由调整，worker余额低于这个数值的时候不会开启自动质押
 
@@ -140,16 +140,16 @@ lotus-miner sectors balance 100 //可以自由调整，worker余额低于这个�
 ##运维特性/注意事项
 1.    关于存储扩容问题
 由于lotus集群对于外部存储的消耗较大，需要逐步增加挂载到集群的存储空间，如果需要增加不同的Path路径，需要首先在sealing miner上初始化：
-```golang
+```shell
 lotus-miner storage attach --init=true /YOUR_STORAGE_PATH
 ```
 然后在WnPost和WdPost上执行命令：
-```golang
+```shell
 lotus-miner storage attach --init=false /YOUR_STORAGE_PATH
 
 ```
 随后在集群中的所有worker上执行命令：
-```golang
+```shell
 lotus-worker syncStore
 ```
 （注意，需要等待sealing miner和worker正常进入服务状态之后）
@@ -170,7 +170,7 @@ C1、AP、FIN、GET、UNS、RD写1即可
 | CPU：3960X,内存：256G,GPU：2080Ti,nvme：4T | AP:1,MaxSector:6，PC1:3,PC2:1,C1:1,C2:1,FIN:1，GET:1,UNS:1,RD:1 | 效率较低，不推荐 |
 | CPU：7542,内存：1T,GPU：3080,nvme：16T | AP:1,MaxSector:24，PC1:12,PC2:1,C1:1,C2:1,FIN:1，GET:1,UNS:1,RD:1 | AP:1,MaxSector:12，PC1:6,PC2:1,C1:1,C2:1,FIN:1，GET:1,UNS:1,RD:1 |
 3.    GasCap设定  
-```golang
+```shell
 lotus setGasCap --preGasCap=1 --preBGasCap=1 --proGasCap=1 --proAGasCap=1 --subGasCap=10
 
 ```
@@ -182,7 +182,7 @@ lotus setGasCap --preGasCap=1 --preBGasCap=1 --proGasCap=1 --proAGasCap=1 --subG
 > * subGasCap     SubmitWindowedPoSt 消息费设置默认10
 
 4.    配置批量提交消息
-```golang
+```shell
 lotus-miner config modify --BatchPreCommits=true --MaxPreCommitBatch=256
 ```  
 | 参数 | 含义 | 默认值 |

@@ -61,9 +61,11 @@ lotus-miner init --owner=<钱包地址> --sector-size=*GiB
 sed -i 's/\"CanStore\": true/\"CanStore\": false/' $LOTUS_MINER_PATH/sectorstore.json
 ```
 * 修改`./lotusminer/config.toml`文件
+```shell
+    ListenAddress = "/ip4/0.0.0.0/tcp/2345/http"
+    RemoteListenAddress = "<本机ip>:2345"
+```
 
-    `ListenAddress = "/ip4/0.0.0.0/tcp/2345/http"
-    RemoteListenAddress = "<本机ip>:2345"`
 * 配置Mysql（<font color=red>Sealing Miner 必须开启Mysql存储数据，其他Miner可不链接Mysql.</font>）
 
     I. 添加环境变量 `SQL_PATH=YOUR_PATH/sql.json`
@@ -99,8 +101,10 @@ lotus-miner storage attach --init --store /home/nfs
 rsync -av --exclude  storage/kvlog  --exclude storage/journal storage storage-wn
 ```
 * 修改 `.lotusminer/config.toml`
+```shell
+RemoteListenAddress = "<本机ip>:端口"
+```
 
-`RemoteListenAddress = "<本机ip>:端口"`
 * 运行WnPost Miner
 ```shell
 nohup lotus-miner run --wdpost=false --wnpost=true --p2p=false --enable-db=false > lotus-wn.log 2>&1 &

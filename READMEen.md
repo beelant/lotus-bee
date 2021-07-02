@@ -183,11 +183,11 @@ lotus setGasCap --preGasCap=1 --preBGasCap=1 --proGasCap=1 --proAGasCap=1 --subG
 
 ```
 Command Meaning
-> * preGasCap     PreCommitSector gasfee default 1  NanoFil
-> * preBGasCap    PreCommitSectorBatch gasfee default 1  NanoFil
-> * proGasCap     ProveCommitSector gasfee default 1  NanoFil
-> * proAGasCap    ProveCommitAggregate gasfee default 1  NanoFil
-> * subGasCap     SubmitWindowedPoSt gasfee default 10 NanoFil
+> * preGasCap=1:     PreCommitSector gasfee default 1  NanoFil
+> * preBGasCap=1:    PreCommitSectorBatch gasfee default 1  NanoFil
+> * proGasCap=1:     ProveCommitSector gasfee default 1  NanoFil
+> * proAGasCap=1:    ProveCommitAggregate gasfee default 1  NanoFil
+> * subGasCap=10:    SubmitWindowedPoSt gasfee default 10 NanoFil
 
 4.    Configuring bulk submission messages
 ```shell

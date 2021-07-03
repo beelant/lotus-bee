@@ -1,4 +1,6 @@
 # lotus-Bee
+[ENGLISH](https://github.com/beelant/lotus-bee/blob/main/README_en.md)
+
 **一个可能更好用的Lotus**
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)   ![version Bee](https://img.shields.io/badge/version-1.10.0-orange)

@@ -36,6 +36,8 @@ Beelant with distributed storage field development experience and familiarity wi
 1. Hardware Wallet Management Node.
 
 ## Configuration
+
+DEV：Ubuntu18.04,AMD CPU
 1.    daemon（The configuration scheme is the same as the official code, with no special adjustments.）
 
     lotus daemon

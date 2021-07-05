@@ -38,6 +38,9 @@
 1. 硬件钱包管理节点
 
 ## 部署流程
+
+环境：Ubuntu18.04,AMD CPU
+
 1.    daemon（配置方案同官方，无特殊调整）
 
     lotus daemon

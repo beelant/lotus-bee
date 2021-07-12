@@ -144,7 +144,7 @@ lotus-miner sectors balance 100 //可以自由调整，worker余额低于这个�
 1.    关于存储扩容问题
 由于lotus集群对于外部存储的消耗较大，需要逐步增加挂载到集群的存储空间，如果需要增加不同的Path路径，需要首先在sealing miner上初始化：
 ```shell
-lotus-miner storage attach --init=true /YOUR_STORAGE_PATH
+lotus-miner storage attach --store --init=true /YOUR_STORAGE_PATH
 ```
 然后在WnPost和WdPost上执行命令：
 ```shell

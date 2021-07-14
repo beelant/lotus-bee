@@ -1,7 +1,7 @@
 # lotus-Bee
 **A possibly better Lotus**
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)   ![version Bee](https://img.shields.io/badge/version-1.10.2-orange)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)   ![version Bee](https://img.shields.io/badge/version-1.10.3-orange)
 
 ## About Lotus-Bee
 Beelant with distributed storage field development experience and familiarity with [Lotus](https://github.com/filecoin-project/lotus/#project-lotus---%E8%8E%B2), the development of Lotus-Bee version of Lotus code, to provide the majority of distributed storage providers faster data encapsulation speed, more flexible cluster configuration method, more stable operation and maintenance characteristics of Lotus code, to promote the development of the industry to make a small contribution.

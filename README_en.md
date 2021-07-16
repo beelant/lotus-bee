@@ -212,7 +212,8 @@ can also be done by modifying the db configuration config
 
 
 ## Discuss in WeChat
-![681626063989_ pic](https://user-images.githubusercontent.com/86239661/125231132-c3431c00-e30c-11eb-8a35-b114fdb44544.jpg)
+![731626407941_ pic_hd](https://user-images.githubusercontent.com/86239661/125889786-ef7bca10-908a-4924-ab8e-def35d54da4b.jpg)
+
 
 
 

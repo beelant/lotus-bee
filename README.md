@@ -130,7 +130,7 @@ nohup lotus-miner run --wdpost=true --wnpost=false --p2p=false --enable-db=false
 3.    Worker
 * 运行Worker（每种任务数量根据机器情况进行相应调整）
 ```shell
-nohup lotus-worker  --listen=<本机ip>:3456 --ability=AP:1,MaxSector:12,PC1:6,PC2:1,C1:1,C2:1,FIN:1,GET:1,UNS:1,RD:1 > worker.log 2>&1 &
+nohup lotus-worker run --listen=<本机ip>:3456 --ability=AP:1,MaxSector:12,PC1:6,PC2:1,C1:1,C2:1,FIN:1,GET:1,UNS:1,RD:1 > worker.log 2>&1 &
 ```
 * ⚠️注意：worker的存储需挂载与miner一样的存储，相同的路径和相同的机器
 

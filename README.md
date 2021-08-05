@@ -10,7 +10,7 @@
 
 
 ## 商业版
-追求更稳定更安全更高效率的 可以看下 [商业版介绍](https://github.com/beelant/lotus-bee/blob/main/Business.md)
+追求更稳定更安全更高效率的 可以看下 [商业版介绍](https://github.com/beelant/lotus-bee/blob/main/README_Pro.md)
 ## 主要增强功能
 **已完成（已通过测试稳定运行）：**
 1.    分离miner的三种角色，sealing、WinPost、WdPost，每个模块可以独立运行，互不干扰。大算力情况下增加爆块率。（⚠️不要开启两个及以上的WinPost机器，容易出现分叉罚款。WdPost可以多开，保证百分百不掉算力）

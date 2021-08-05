@@ -17,14 +17,14 @@
     - PreCommit2和Commit2任务完成时间消耗10min以内。
     - 支持多卡随意搭配允许多个gpu任务。例：双卡机可同时进行2个c2或者 2个p2 或者 1个p2 1个c2等等以此类推。   
     
-    - 以下为**32Gb扇区 7542 3080*2** benchmark数据
+    - 以下为**32Gb扇区 7542 3080*1** benchmark数据
 ```
 results (v28) SectorSize:(34359738368), SectorNumber:(1)
 seal: addPiece: 1m19.866417797s (410 MiB/s)
 seal: preCommit phase 1: 2h48m36.947479519s (3.239 MiB/s)
 seal: preCommit phase 2: 8m29.863756006s (64.27 MiB/s)
 seal: commit phase 1: 428.302455ms (74.71 GiB/s)
-seal: commit phase 2: 23m49.235556987s (40.04 MiB/s)
+seal: commit phase 2: 11m8.230462756s (49.04 MiB/s)
 seal: verify: 12.726156ms
 
 generate candidates: 178.612µs (175TiB/s)

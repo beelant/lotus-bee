@@ -8,6 +8,9 @@
 ## 关于Lotus-Bee
 蜂灯科技凭借分布式存储领域开发经验和对[Lotus代码](https://github.com/filecoin-project/lotus/#project-lotus---%E8%8E%B2)的深刻钻研，特此开发Lotus-Bee版本Lotus代码，提供广大分布式存储提供商更快捷的数据封装速度，更灵活的集群配置方式，更稳定的运维特性的Lotus代码，为推动行业发展贡献绵薄之力，现决定开放免费使用。
 
+
+## 商业版
+追求更稳定更安全更高效率的 可以看下https://github.com/beelant/lotus-bee/blob/main/Business.md
 ## 主要增强功能
 **已完成（已通过测试稳定运行）：**
 1.    分离miner的三种角色，sealing、WinPost、WdPost，每个模块可以独立运行，互不干扰。大算力情况下增加爆块率。（⚠️不要开启两个及以上的WinPost机器，容易出现分叉罚款。WdPost可以多开，保证百分百不掉算力）

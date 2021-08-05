@@ -20,14 +20,14 @@
     - 以下为**32Gb扇区 7542 3080*1** benchmark数据
 ```
 results (v28) SectorSize:(34359738368), SectorNumber:(1)
-seal: addPiece: 1m19.866417797s (410 MiB/s)
+seal: addPiece: 1m19.866417797s (410.3 MiB/s)
 seal: preCommit phase 1: 2h48m36.947479519s (3.239 MiB/s)
 seal: preCommit phase 2: 8m29.863756006s (64.27 MiB/s)
 seal: commit phase 1: 428.302455ms (74.71 GiB/s)
 seal: commit phase 2: 11m8.230462756s (49.04 MiB/s)
 seal: verify: 12.726156ms
 
-generate candidates: 178.612µs (175TiB/s)
+generate candidates: 178.612µs (175 TiB/s)
 compute winning post proof (cold): 4.148707004s
 compute winning post proof (hot): 3.750776236s
 verify winning post proof (cold): 86.592725ms

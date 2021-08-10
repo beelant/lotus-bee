@@ -212,7 +212,7 @@ can also be done by modifying the db configuration config
 
 
 ## Discuss in WeChat
-![image](https://user-images.githubusercontent.com/86239661/128142093-4bc7d3f1-9639-4d26-9214-a70c870e69b3.png)
+![image](https://user-images.githubusercontent.com/86239661/128838069-57f9209a-b115-4212-a1b8-fa790efa0f2a.png)
 
 ## Business Communication
 ![image](https://user-images.githubusercontent.com/86239661/126980665-1ca8c996-c9c1-4c86-b585-0ed42feebf77.png)

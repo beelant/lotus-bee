@@ -206,7 +206,9 @@ lotus-miner config modify --BatchPreCommits=true --MaxPreCommitBatch=256
 
 
 ## 交流分享
-![image](https://user-images.githubusercontent.com/86239661/130407649-4015932c-f5e3-43e0-828d-4fa77f533ff1.png)
+![image](https://user-images.githubusercontent.com/86239661/131319877-42444f39-fde2-4b2e-a48b-6f1f1693c105.png)
+
+
 
 
 

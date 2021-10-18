@@ -222,7 +222,7 @@ nohup lotus-worker run --listen=本地IP:3456 --workername=1 --accept-other-c2=t
  3. daemon机器配置
  
     ```
-    echo export DAEMON_URL=本地ip:1234 >> /etc/profile 
+    echo export DAEMON_URL=http://本地ip:1234 >> /etc/profile 
     source /etc/profile
     ```
     
@@ -243,8 +243,9 @@ nohup lotus-worker run --listen=本地IP:3456 --workername=1 --accept-other-c2=t
 
  6. 同步daemon机器的 jwt_token,所有daemon机器需要保证同样的token
     * 在第一台启动好的daemon的工作目录下，会生成一个文件“beePrivateKey”
-    * 将此文件复制到所有Daemon集群中的其他机器上
+    * 将beePrivateKey和token复制到所有Daemon集群中的其他机器对应的位置上
     * 重启daemon服务
+    * 所有miner使用第一台机器的token
 
  7. miner上配置环境变量，然后重启miner服务
     ```

@@ -30,7 +30,7 @@
 *  CPU：AMD 
 *  内存： >= 256GB
 *  与官方版本兼容性： 可来回切换
-*  lotus-bee V1.12.0
+*  lotus-bee V1.16.0
 
 ## 升级流程
 1. 下载lotus-bee 替换官方程序
